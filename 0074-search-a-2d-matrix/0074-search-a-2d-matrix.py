@@ -23,13 +23,10 @@ class Solution:
             start, end = 0, n-1
             while start < end:
                 mid = start + (end - start) // 2
-                # print("start: ", start, ", end: ", end, ", mid: ", mid)
                 if tRow[mid] > target:
                     end = mid - 1
-                    # print("start: ", start, ", end: ", end)
                 elif tRow[mid] < target:
                     start = mid + 1
-                    # print("start: ", start, ", end: ", end)
                 else:
                     return True
 
