@@ -17,7 +17,17 @@ bool endsWith(const char *str, const char *suffix) {
     int str_len = strlen(str);
     int suffix_len = strlen(suffix);
     if (suffix_len > str_len) return false;
-    return strncmp(str + str_len - suffix_len, suffix, suffix_len) == 0;
+
+    str += str_len - suffix_len; // 문자열의 끝에서 접미사의 길이만큼 거슬러 올라감
+
+    while (*suffix) {
+        if (*str != *suffix) {
+            return false;
+        }
+        str++;
+        suffix++;
+    }
+    return true;
 }
 
 int vowelStrings(char** words, int wordsSize, int left, int right) {
